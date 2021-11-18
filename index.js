@@ -19,7 +19,7 @@ app.get("", (req, res) => {
     { "first_name": "Chris", "last_name": "Brodest", "email": "cbrodest7@google.com.hk", "gender": "Agender" },
     { "first_name": "Adah", "last_name": "Harriskine", "email": "aharriskine8@globo.com", "gender": "Non-binary" },
     { "first_name": "Yehudit", "last_name": "Rossin", "email": "yrossin9@123-reg.co.uk", "gender": "Genderqueer" }];
-        return res.send(data[0].first_name + " "+data[0].last_name);
+        return res.send(data);
     })
 
 
