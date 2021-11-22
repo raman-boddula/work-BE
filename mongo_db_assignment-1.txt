@@ -1,0 +1,40 @@
+MONGO-ASSGINMENT-01(22-Nov-2021)
+
+For this assignment you need to create a database called assignment and collection called users that has following fields :-
+
+type mongo on cmd -> we will the three default databases in mongo.
+-> To Create new database => use databaseName and enter
+-> Then the database will get created ;
+-> In the specific database if you want to create a new collection on it;
+->Type db.collectionName;
+-> If you want to  insert any kind of data in to that collection => db.collectionName.insert({"first_name":"raman"...... you can add number of  fields you want...});
+->As soon as you click on enter the data will be added into that collection.
+=>To show that collection   => type show collections ,with this  you will get the collections on the specific database;
+
+Query : first_name,last_name,email,gender,ip_address,age  ...?
+
+ANS : db.collectionName.insert({"first_name":"raman"...... you can add number of  fields you want...});
+
+Query : Insert 10 documents in this users collection using both insert and insertMany...?
+
+ANS : db.collectionName.insertMany([{"first_name":"raman"...... you can add number of  fields you want...},{"first_name":"raman"...... you can add number of  fields you want...},{"first_name":"raman"...... you can add number of  fields you want...},{"first_name":"raman"...... you can add number of  fields you want...},{"first_name":"raman"...... you can add number of  fields you want...}.... ]);
+To insert many rows of data  you will need a arrray of objects to  pass;
+
+Query : Select all the documents in the users collection using find and also a single document using findOne
+
+ANS : Once you hava added the data into the database ,if you want to see all that data .You just need to type db.collectionName.find();
+
+	   Incase if you want only one data ,You just need to type db.collectionName.findOne();
+
+Query : Update at least 3 documents using update and updateMany
+
+ANS : If you want update a existed data , you just need to type the command db.collectionName.update({"gender":"male"},{"genderModify":"female"}) ;this is overwrites the data into the data who has gender :"Male";
+
+		(UpdateMany) If you want update only specific field ,rest all should be same usual.You need to use the command db.users.updateMany({"gender":"male"},{$set:{"genderModify":"female"}})
+
+Query : Delete documents using remove, remove that will remove just 1 document, deleteOne, deleteMany
+
+ANS : To delete a specifi item db.collectionName.deleteOne({"_id" : ObjectId("619b86667cd36db3525d936c")})
+		To delete a bunch of data at once which has similary field db.collectionName.deleteMany({"firstName" : "raman2"});
+Query : Then delete the database ..?
+ANS : TO delete a database once you switched to that  databse ,type db.dropDatabase(); 
