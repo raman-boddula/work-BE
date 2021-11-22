@@ -26,11 +26,11 @@ app.patch("/:email",(req,res)=>{
     const newData = users.map((user)=>{
         if (req.params.email === user.email) {
             return req.body;
-            // if(req?.body?.id) user.id = req.body.id;
-            // if(req?.body?.first_name) user.first_name = req.body.first_name;
-            // if(req?.body?.last_name) user.last_name = req.body.last_name;
-            // if(req?.body?.email) user.email = req.body.email;
-            // if(req?.body?.gender) user.gender = req.body.gender;
+            if(req?.body?.id) user.id = req.body.id;
+            if(req?.body?.first_name) user.first_name = req.body.first_name;
+            if(req?.body?.last_name) user.last_name = req.body.last_name;
+            if(req?.body?.email) user.email = req.body.email;
+            if(req?.body?.gender) user.gender = req.body.gender;
         }
         return user;
     })
