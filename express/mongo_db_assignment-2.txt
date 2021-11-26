@@ -38,4 +38,5 @@
     Ans : db.movies.find({},{"title":1,"production_year":1,"_id":0}).sort({"production_year":-1,"title":1},{"title":1}).pretty().skip(10).limit(5);
 
     Query :  remove movie genre from the first 10 movies in query 10. ?
-    Ans : 
+    Ans : db.movies.find().pretty().skip(5).limit(5).forEach(doc => db.movies.update({id:doc._id},{$unset:{movie_genre:1}}))
+
