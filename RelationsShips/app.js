@@ -310,7 +310,7 @@ app.get("/sections/:id/books", async (req, res) => {
 //authors length==1
 app.get("/books/authors/1", async (req, res) => {
     try {
-        const singleAuthorBooks = await Book.find({ $where: 'this.author_ids.length==1' }).populate({ path:"section_ids",select:"name"}).populate({path:"author_ids",select:"first_name"+" "+"last_name"}).lean().exec();
+        const singleAuthorBooks = await Book.find({ $where: 'this.author_ids.length==1'}).populate({ path:"section_ids",select:"name"}).populate({path:"author_ids",select:"first_name"+" "+"last_name"}).lean().exec();
         return res.status(201).send(singleAuthorBooks);
     }
     catch (e) {
