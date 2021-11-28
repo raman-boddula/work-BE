@@ -3,10 +3,11 @@ const express = require("express");
 // const mongoose = require("mongoose");
 
 const User = require("../models/user.models");
+const router = require("./students.controller");
 
-const app = express.Router();
+const router = express.Router();
 
-app.post("", async (req, res) => {
+router.post("", async (req, res) => {
     try {
         const user = await User.create(req.body);
         return res.status(201).send(user );
@@ -16,7 +17,7 @@ app.post("", async (req, res) => {
     }
 })
 
-app.get("", async (req, res) => {
+router.get("", async (req, res) => {
     try {
         const user = await User.find().lean().exec();
         return res.send({ user });
@@ -26,7 +27,7 @@ app.get("", async (req, res) => {
     }
 })
 
-app.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const user = await User.findById(req.params.id).lean().exec();
         return res.send({ user });
@@ -35,7 +36,7 @@ app.get("/:id", async (req, res) => {
         return res.status(500).json({"status":e.message});
     }
 })
-app.patch("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate(req.params.id ,req.body, { new: true }).lean().exec();
         return res.send({ user });
@@ -45,7 +46,7 @@ app.patch("/:id", async (req, res) => {
     }
 })
 
-app.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id).lean().exec();
         return res.send({user})
@@ -55,4 +56,4 @@ app.delete("/:id", async (req, res) => {
     }
 })
 
-module.exports = app;
+module.exports = router;

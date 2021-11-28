@@ -2,6 +2,8 @@ const express = require("express");
 
 const Eval = require("../models/eval.models");
 
+const User = require("../models/user.models")
+
 const router = express.Router();
 
 router.get("/:date", async (req, res) => {
@@ -15,4 +17,4 @@ router.get("/:date", async (req, res) => {
     }
 })
 
-module.export = router;
+module.exports= router;

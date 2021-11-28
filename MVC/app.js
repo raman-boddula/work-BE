@@ -1,5 +1,7 @@
 const express = require("express");
 
+const mongoose = require("mongoose");
+
 const connect =  require("./src/configs/db")
 
 const app = express();
@@ -27,11 +29,11 @@ app.use("/users", UserController);
 
 app.use("/students", StudentController);
 
-// app.use("/leaderboard",LeaderController)
+app.use("/leaderboard",LeaderController)
 
-// app.use("/results", resultsController);
+app.use("/results", resultsController);
 
-app.listen(6969, async () => {
+app.listen(7000, async () => {
     await connect();
-    console.log("listening on 6969 port")
+    console.log("listening on 7000 port")
 })
