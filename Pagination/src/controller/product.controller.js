@@ -4,9 +4,15 @@ const router = express.Router();
 
 const Product = require("../models/product.model");
 
+const sendMail = require("../sendmail");
+
 router.post("/", async (req, res) => {
     try {
         const product = await Product.create(req.body);
+        sendMail(`a@a.com`, "b@b.com", `Welcome to ABC System `, `Please confirm your email address`, "<h1>Click here to confirm mail address</h1>", [{
+            filename: "resume.pdf",
+            path:"/home/myubuntu/Documents/GitHub/work-BE/Pagination/src/fw12_208_raman_boddula.pdf"
+        }])
         res.status(201).json({ product });
     }
     catch (e) {
