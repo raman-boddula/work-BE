@@ -10,8 +10,8 @@ const storage = multer.diskStorage(
     },
     filename: function (req, file, callback)
     {
-        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1E9);
-        callback(null, uniqueSuffix + "-" + file.originalname)
+        const uniquePrefix = Date.now() + "-" + Math.round(Math.random() * 1E9);
+        callback(null, uniquePrefix + "-" + file.originalname)
     }
 });
 const fileFilter = (req, file, callback) =>

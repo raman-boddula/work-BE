@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const productSChem = new Schema({
+const userSchema = new Schema({
     name: { type: String, required: true },
     price: { type: String, required: true },
     image_urls:[{type:String ,required:true}]
@@ -9,4 +9,4 @@ const productSChem = new Schema({
     timestamps:false
 })
 
-module.exports = new model("user", productSChem);
+module.exports = new model("user", userSchema);
