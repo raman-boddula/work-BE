@@ -2,9 +2,9 @@ const connect = require("./configs/db");
 
 const app = require("./index")
 
-app.listen(6969, async () => {
+app.listen(6837, async () => {
     await connect();
-    console.log("listening on 6969")
+    console.log("listening on 4568")
 });
 
 module.exports = app;
