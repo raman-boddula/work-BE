@@ -28,7 +28,6 @@ router.get("/", async (req, res) => {
     const gallery = await Gallery.find().lean().exec();
     return res.send(gallery)
 })
-
 router.delete("/:id", async (req, res) => {
     try {
         const gallery = await Gallery.findById(req.params.id).populate("user_id").lean().exec();
