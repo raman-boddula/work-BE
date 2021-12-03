@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const user = require("../models/user.model")
+const User = require("../models/user.model")
 
 const galleySchema = new mongoose.Schema({
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: user,
+        ref: User,
         required:true
     },
     image_urls:[{type:String ,required:true}]
