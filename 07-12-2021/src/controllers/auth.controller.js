@@ -8,23 +8,22 @@ const newToken = (user) => {
 
 const register = async (req, res) => {
   try {
-    // check if the email address provided already exist
+    
     let user = await User.findOne({ email: req.body.email }).lean().exec();
 
-    // if it already exists then throw an error
+    
     if (user)
       return res.status(400).json({
         status: "failed",
         message: " Please provide a different email address",
       });
 
-    // else we will create the user we will hash the password as plain text password is harmful
-    user = await User.create(req.body);
+     user = await User.create(req.body);
 
-    // we will create the token
+    
     const token = newToken(user);
 
-    // return the user and the token
+    
     res.status(201).json({ user, token });
   } catch (e) {
     return res.status(500).json({ status: "failed", message: e.message });
