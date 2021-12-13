@@ -44,11 +44,12 @@ router.get("/:id", async (req,res) => {
         
         if(patchedProduct) return res.status(200).send(patchedProduct);
 
-
         const product = await Product.findById(req.params.id).lean().exec();
 
         res.status(200).send(product);
-    }  catch (e) {
+    }
+    catch (e)
+    {
         res.status(500).json({message: e.message, status:"Failed"});
     }
 })
@@ -61,7 +62,9 @@ router.post("", async (req, res) => {
         redis.set("products",JSON.stringify(products));
 
         res.status(201).send(product);
-    } catch (e) {
+    }
+    catch (e)
+    {
         res.status(500).json({message: e.message, status:"Failed"});
     }
 })
