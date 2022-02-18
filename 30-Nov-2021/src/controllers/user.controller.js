@@ -1,4 +1,4 @@
-//pagination and email
+//pagination and email assignment
 const express = require("express");
 
 const router = express.Router();
